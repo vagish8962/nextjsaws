@@ -2,7 +2,6 @@ import { useRouter } from "next/router";
 import React, { useEffect } from "react";
 import useFetchData from "@/Hooks/useFetchData";
 import Loading from "@/Commons/loading";
-import { AiOutlineDown } from "react-icons/ai";
 
 function ArticleDetailPage() {
   const router = useRouter();

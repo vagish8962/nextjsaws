@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useRef } from "react";
-import { FaSearch } from "react-icons/fa";
 import { useRouter } from "next/router";
 
 function SearchBox() {

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { FaSearch } from "react-icons/fa";
 import useFetchData from "@/Hooks/useFetchData";
 import Link from "next/link";
 
@@ -103,7 +102,7 @@ function FiltersSidebar({ onSearch, onFilterBrands, onFilterAttribute }) {
             className="flex-grow outline-none"
           />
           <button onClick={handleSearch} className="px-3">
-            <FaSearch className="text-gray-500" />
+            dsa
           </button>
         </div>
 

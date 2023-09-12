@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { FaSearch } from "react-icons/fa";
 import useFetchData from "@/Hooks/useFetchData";
 import Link from "next/link";
 
@@ -110,9 +109,7 @@ function FiltersSidebar(props) {
             }}
             className="flex-grow outline-none p-4"
           />
-          <button onClick={handleSearch} className="px-3">
-            <FaSearch size={25} className="text-gray-500" />
-          </button>
+
         </div>
 
         <article className="overflow-y-scroll max-h-96">

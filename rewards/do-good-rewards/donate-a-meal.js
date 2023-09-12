@@ -3,7 +3,6 @@ import {getContentStatictics,getInitiativeResponse,getInitiativeStatictics
 } from "@/pages/api/api-handler-helpers";
 import {DonateMealPopup} from "@/Components/rewards/modalContent";
 import Modalpopup from "@/Components/rewards/modal";
-import { AiOutlineDown } from "react-icons/ai";
 import { useRouter } from "next/router";
 
 export default function DoGoodRewards() {
@@ -63,7 +62,7 @@ export default function DoGoodRewards() {
         }}>
         <div className="backdrop-brightness-75 bg-black/30 w-full h-full relative">
           <p className="text-white cursor-pointer  flex items-center flex-col mb-10 text-lg lg:text-xl font-unilevershillingMedium w-full absolute bottom-0 left-auto">
-            <AiOutlineDown size={30} className="animate-bounce"></AiOutlineDown>
+
             Read the story
           </p>
         </div>

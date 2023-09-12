@@ -1,5 +1,4 @@
 import React from "react";
-import { FaSearch } from "react-icons/fa";
 import { useRouter } from "next/router";
 
 function NoResult({ query }) {
@@ -21,7 +20,7 @@ function NoResult({ query }) {
   return (
     <div className="w-full h-[90vh] bg-green-500 flex justify-center items-center">
       <div className="flex flex-col items-center justify-evenly w-3/4 h-3/4">
-        <FaSearch size={70}></FaSearch>
+
         <h1 className="font-bold tracking-wide text-center text-3xl">
           {`Sorry, we couldn’t find any results for “${query}”`}
         </h1>

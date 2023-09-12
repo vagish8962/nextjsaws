@@ -1,10 +1,8 @@
 import React from "react";
-import { AiOutlineClose } from "react-icons/ai";
 
 function ErrorResult() {
     return (
         <div className="w-1/2 h-auto bg-green-500 flex p-4 flex-col my-auto mx-auto justify-center items-center">
-            <AiOutlineClose size={60}></AiOutlineClose>
             <h1 className="font-bold text-2xl">Oops! something went wrong</h1>
             <p className="text-lg">Please check your internet or refresh this page</p>
             <button
