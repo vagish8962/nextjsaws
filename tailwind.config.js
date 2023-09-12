@@ -49,7 +49,6 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
 
-  important: '#app',
   theme: {
     colors: colors,
     extend: {
