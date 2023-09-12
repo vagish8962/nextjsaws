@@ -75,7 +75,6 @@ function SearchBox() {
           }}
         />
         <button onClick={handleSearch} className="absolute left-4 top-2.5">
-          <FaSearch className="text-green-900" size={22} />
         </button>
       </div>
       {showSuggestions && (
