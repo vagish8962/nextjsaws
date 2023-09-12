@@ -48,7 +48,8 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  important: '#__next',
+
+  important: '#app',
   theme: {
     colors: colors,
     extend: {
