@@ -3,7 +3,6 @@ import Layout from "../Components/layout";
 import Head from "./head";
 
 function MyApp({ Component, pageProps }) {
-  alert('ds')
   return (
     <>
     <Head>
