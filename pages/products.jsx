@@ -6,7 +6,7 @@ import FiltersSidebar from "@/Components/products/FilterSideBar";
 import ProductListing from "@/Components/products/product-listing";
 
 import Breadcrumb from "@/Components/breadcrumb";
-import useApi from "@/api/api";
+import useApi from "@/pages/api/api";
 import { useRouter } from "next/router";
 
 function ProductsPage() {
@@ -100,12 +100,12 @@ function ProductsPage() {
             />
 
             <article className="basis-3/4 pl-20 mt-10">
-            <ProductListing
-              productsData={productsData}
-              setingPageNumber={changingPageData}
-              singleProductClick={handleCardClick}
-              pageNum={pageNumber}
-            />
+              <ProductListing
+                productsData={productsData}
+                setingPageNumber={changingPageData}
+                singleProductClick={handleCardClick}
+                pageNum={pageNumber}
+              />
             </article>
           </div>
         </div>

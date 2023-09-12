@@ -7,7 +7,7 @@ import Link from "next/link";
 import {
   getContentStatictics,
   getInitiativeStatictics
-} from "@/api/api-handler-helpers";
+} from "@/pages/api/api-handler-helpers";
 
 export default function Claimed() {
   const [donateMeal, setDonateMeal] = useState();

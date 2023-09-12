@@ -3,7 +3,7 @@ import CategorySidebar from "@/Components/products/CategorySidebar";
 // import CategoryCards from "@/Components/products/category-cards";
 // import RecommendedProductsCard from "@/Components/products/RecommendedProductsCard";
 import ProductListing from "@/Components/products/product-listing";
-import useApi from "@/api/api";
+import useApi from "@/pages/api/api";
 import { useRouter } from "next/router";
 
 
@@ -94,37 +94,37 @@ function CategoryListing() {
 
     <>
 
-    <section className="bg-green-500">
+      <section className="bg-green-500">
         <div className="container mx-auto">
           <div className="flex lg:flex-row flex-col lg:space-x-4 mx-3 lg:mx-0">
 
-          <article className="basis-1/4 h-full sticky top-0">
-            <CategorySidebar
-              categoryList={categoryListing}
-              selCategoryValue={fetchSingleCategory}
-              setSelectedCategoryText={setSelectedCategoryText}
-            />
+            <article className="basis-1/4 h-full sticky top-0">
+              <CategorySidebar
+                categoryList={categoryListing}
+                selCategoryValue={fetchSingleCategory}
+                setSelectedCategoryText={setSelectedCategoryText}
+              />
             </article>
 
             <article className="basis-3/4 pl-20 mt-10">
-            <h2 className="text-lg mt-2 mb-5 font-unilevershillingMedium">{selectedCategory}</h2>
+              <h2 className="text-lg mt-2 mb-5 font-unilevershillingMedium">{selectedCategory}</h2>
 
-            
-            <ProductListing
-          productsData={productListing}
-          setingPageNumber={changingPageData}
-          singleProductClick={handleCardClick}
-          pageNum={pageNumber}
-        />
-            
 
-            </article>  
-            
+              <ProductListing
+                productsData={productListing}
+                setingPageNumber={changingPageData}
+                singleProductClick={handleCardClick}
+                pageNum={pageNumber}
+              />
+
+
+            </article>
+
           </div>
         </div>
       </section>
 
-   
+
 
     </>
   );

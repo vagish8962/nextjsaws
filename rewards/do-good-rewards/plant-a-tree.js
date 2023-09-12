@@ -1,56 +1,55 @@
 import React, { useEffect, useState } from "react";
-import {getContentStatictics,getInitiativeResponse,getInitiativeStatictics
-} from "@/api/api-handler-helpers";
-import {DonateMealPopup} from "@/Components/rewards/modalContent";
+import {getContentStatictics, getInitiativeResponse, getInitiativeStatictics} from "@/pages/api/api-handler-helpers";
 import Modalpopup from "@/Components/rewards/modal";
 import { AiOutlineDown } from "react-icons/ai";
 import { useRouter } from "next/router";
+import {PlantATreePopup} from "@/Components/rewards/modalContent";
 
 export default function DoGoodRewards() {
   const [donateMeal, setDonateMeal] = useState();
-  const [availableDonateMeal, setAvailableDonateMeal]=useState();
+  const [AvailablePlantTree, setAvailablePlantTree]=useState();
   const [isOpenModal, setIsOpenModal] = useState(false);
-  const router = useRouter();
-  useEffect(() => {                   
-    getContentStaticticsfunction(); 
-    getAvailablityMealfunction();     //Donate a Meal availableInitiative fetchapi
+  const router=useRouter();
+
+  //getContentStatictics fetchAPI
+  useEffect(() => {
+    getContentStaticticsfunction();
+    getAvailablityTreefunction();   //PlantATree availableInitiative fetchapi
   }, []);
+
   const getContentStaticticsfunction = () => {
-    getContentStatictics("contentDonateMeal")
-      .then((response) => {
+    getContentStatictics("contentPlantTree").then((response) => {
         setDonateMeal(response);
-      })
-      .catch((error) => {
+      }).catch((error) => {
         console.log("Something Went Wrong");
       });
   };
-  const openModal = () => {setIsOpenModal(true)}; //ModalPopup
+  const openModal = () => {setIsOpenModal(true)};   //Modalpopup functionalities
   const closeModal = () => {setIsOpenModal(false)};
- 
-  const getInitiativeResponsefunction = () => {
+
+  const getInitiativeResponsefunction = () => {     //plant response api
     let bodyContentObject = {
-      initiativeType: "DonateAMeal",       //donatea meal response api
+      initiativeType: "PlantATree",
     };
     getInitiativeResponse(bodyContentObject).then((res) => {
         if(res?.status){
           router.push({
-            pathname: `/rewards/do-good-rewards/confirm-meal-donate`,
+            pathname: `/rewards/do-good-rewards/confirm-plant-tree`,
         })
         }else{
           setIsOpenModal(false)
-        }
-      })
-      .catch((err) => {console.log("Something Went Wrong", err)});
-  };
-  const getAvailablityMealfunction = () =>{
-    getInitiativeStatictics().then((res)=>{
-      setAvailableDonateMeal(res)
-    })
-    .catch((err)=>{
-      console.log("Something Went Wrong", err)
-    })
+        } 
+      }).catch((err) => {console.log("Something Went Wrong", err)});
   }
- const handleCancle=()=>{setIsOpenModal(false)}
+
+   const getAvailablityTreefunction = () =>{
+    getInitiativeStatictics().then((res)=>{
+      setAvailablePlantTree(res)
+    })
+    .catch((err)=>{console.log("Something Went Wrong", err)})
+  }
+  const handleCancel=()=>{setIsOpenModal(false)};   //Popup cancle button
+  
   return (
     <div className="bg-green-900">
       <div
@@ -66,37 +65,30 @@ export default function DoGoodRewards() {
             <AiOutlineDown size={30} className="animate-bounce"></AiOutlineDown>
             Read the story
           </p>
-        </div>
+          </div>
       </div>
       <div className="container mx-auto px-5 lg:px-5">
         <div className="flex flex-row space-x-5">
           <article className="basis-3/5">
-            <img
-              src={`${process.env.imageURL}${donateMeal?.sections[0].image.id}.${donateMeal?.sections[0].image.type}`}
-              alt={donateMeal?.title}
-              className="w-auto"
-            />
+            <div className="mt-10 flex">
+              <img src={`${process.env.imageURL}${donateMeal?.sections[0].image.id}.${donateMeal?.sections[0].image.type}`}
+                alt={donateMeal?.title}
+                className="w-auto rounded-xl"/>
+            </div>
           </article>
           <article className="basis-2/5">
             <div className="flex flex-row text-white items-center my-10">
               <div className="bg-white rounded-full flex flex-col justify-center w-28 h-28 mr-5">
-                <img
-                  src={`${process.env.imageURL}${donateMeal?.icon.id}.${donateMeal?.icon.type}`}
+                <img src={`${process.env.imageURL}${donateMeal?.icon.id}.${donateMeal?.icon.type}`}   
                   alt="Rounded avatar"/>
               </div>
               <div>
-                <h1 className="font-unilevershillingBold text-xl">
-                  {donateMeal?.title}
-                </h1>
-                <p className="font-unilevershilling text-base">
-                  {donateMeal?.subTitle}
-                </p>
+              <h1 className="font-unilevershillingBold text-xl">{donateMeal?.title}</h1>
+              <p className="font-unilevershilling text-base">{donateMeal?.subTitle}</p>
               </div>
             </div>
             <div className="text-white mb-5">
-              <p className="font-unilevershilling text-base">
-                {donateMeal?.description}
-              </p>
+              <p className="font-unilevershilling text-base">{donateMeal?.description}</p>
             </div>
             <div className="text-white">
               {donateMeal?.sections?.map((textData, index) => (
@@ -113,15 +105,14 @@ export default function DoGoodRewards() {
               </p>
             </div>
             <button
-              className="text-center p-4 bg-white text-green-800 
-         font-extrabold w-96 text-lgtext-transform: uppercase rounded-xl mb-20"
-              onClick={() => openModal()}>{donateMeal?.title}</button>
-            <Modalpopup isOpen={isOpenModal} onClose={closeModal}>
-                <DonateMealPopup availableDonateMeal={availableDonateMeal} donateMeal={donateMeal} handleCancle={handleCancle} getInitiativeResponsefunction={getInitiativeResponsefunction}/>
-            </Modalpopup>
+            className="text-center p-4 bg-white text-green-800 
+            font-extrabold w-96 text-lgtext-transform: uppercase rounded-xl mb-20"
+            onClick={() => openModal()}>{donateMeal?.title}</button>
+          <Modalpopup isOpen={isOpenModal} onClose={closeModal}>
+          <PlantATreePopup AvailablePlantTree={AvailablePlantTree} donateMeal={donateMeal} handleCancel={handleCancel} getInitiativeResponsefunction={getInitiativeResponsefunction}/></Modalpopup>
           </article>
         </div>
       </div>
-    </div>
+      </div>
   );
 }

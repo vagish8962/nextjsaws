@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getBrands } from "@/api/api-handler-helpers";
+import { getBrands } from "@/pages/api/api-handler-helpers";
 
 const filterData = [
   {

@@ -1,4 +1,4 @@
-import useApi from "@/api/api";
+import useApi from "@/pages/api/api";
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 

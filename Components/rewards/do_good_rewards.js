@@ -3,7 +3,7 @@ import {
   getInitiativetypes,
   getContentStatictics,
   getInitiativeStatictics,
-} from "@/api/api-handler-helpers";
+} from "@/pages/api/api-handler-helpers";
 import Link from "next/link";
 
 const DoGoodRewards = () => {

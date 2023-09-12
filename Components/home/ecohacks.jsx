@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 // //import Link from "next/link";
 // import ecohacksimg from "@/icons/images/eco-hacks.png";
 // import hellmannsimg from "@/icons/images/hellmanns.png";
-import useApi from "@/api/api";
+import useApi from "@/pages/api/api";
 import { useRouter } from "next/router";
 import { allLeapFiltersSeq, imageUrl } from "@/constants";
 
@@ -83,11 +83,10 @@ function Ecohacks() {
             {allLeapFiltersSeq?.map((filter) => (
               <button
                 key={filter.name}
-                className={`inline-block rounded-md px-3 py-2 text-xs font-unilevershilling ${
-                  selectedFilter === filter.name
+                className={`inline-block rounded-md px-3 py-2 text-xs font-unilevershilling ${selectedFilter === filter.name
                     ? "bg-green-800 text-white"
                     : "bg-gray-200 text-black"
-                } mr-2 mb-2`}
+                  } mr-2 mb-2`}
                 onClick={() => handleFilterClick(filter.name)}
               >
                 {filter.label}
