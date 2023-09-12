@@ -41,6 +41,7 @@ const colors = {
     },
   },
 };
+
 module.exports = {
   purge: [
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
