@@ -1,0 +1,17 @@
+runtime: custom
+service: leaprewards-stage
+env: flex
+manual_scaling:
+  instances: 1
+network:
+  instance_tag: leaprewards-stage
+  name: twh-europe-vpc
+  subnetwork_name: twh-europe-subnet-1
+  instance_ip_mode: internal
+resources:
+  cpu: 1
+  memory_gb: 2
+  disk_size_gb: 10
+runtime_config:
+  build:
+    image:europe-docker.pkg.dev/ul-ce-p-902295-prj/leaprewards-stage/leaprewards-stage:latest

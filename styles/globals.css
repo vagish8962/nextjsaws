@@ -1,0 +1,318 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+.modal-open {
+  overflow: hidden;
+}
+
+@font-face {
+  font-family: "Unilever Shilling";
+  src: url("/fonts/UnileverShilling.eot");
+  src: url("/fonts/UnileverShilling.eot?#iefix") format("embedded-opentype"),
+    url("/fonts/UnileverShilling.woff2") format("woff2"),
+    url("/fonts/UnileverShilling.woff") format("woff"),
+    url("/fonts/UnileverShilling.ttf") format("truetype"),
+    url("/fonts/UnileverShilling.svg#UnileverShilling") format("svg");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Unilever Shilling Italic";
+  src: url("/fonts/UnileverShilling-It.eot");
+  src: url("/fonts/UnileverShilling-It.eot?#iefix") format("embedded-opentype"),
+    url("/fonts/UnileverShilling-It.woff2") format("woff2"),
+    url("/fonts/UnileverShilling-It.woff") format("woff"),
+    url("/fonts/UnileverShilling-It.ttf") format("truetype"),
+    url("/fonts/UnileverShilling-It.svg#UnileverShilling-It") format("svg");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Unilever Shilling Medium";
+  src: url("/fonts/UnileverShilling-Md.eot");
+  src: url("/fonts/UnileverShilling-Md.eot?#iefix") format("embedded-opentype"),
+    url("/fonts/UnileverShilling-Md.woff2") format("woff2"),
+    url("/fonts/UnileverShilling-Md.woff") format("woff"),
+    url("/fonts/UnileverShilling-Md.ttf") format("truetype"),
+    url("/fonts/UnileverShilling-Md.svg#UnileverShilling-Md") format("svg");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Unilever Shilling Bold";
+  src: url("/fonts/UnileverShilling-Bd.eot");
+  src: url("/fonts/UnileverShilling-Bd.eot?#iefix") format("embedded-opentype"),
+    url("/fonts/UnileverShilling-Bd.woff2") format("woff2"),
+    url("/fonts/UnileverShilling-Bd.woff") format("woff"),
+    url("/fonts/UnileverShilling-Bd.ttf") format("truetype"),
+    url("/fonts/UnileverShilling-Bd.svg#UnileverShilling-Bd") format("svg");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ShireTypesPro';
+    src: url('/fonts/ShireTypesPro-Derbyshire.eot');
+    src: url('/fonts/ShireTypesPro-Derbyshire.eot?#iefix') format('embedded-opentype'),
+        url('/fonts/ShireTypesPro-Derbyshire.woff2') format('woff2'),
+        url('/fonts/ShireTypesPro-Derbyshire.woff') format('woff'),
+        url('/fonts/ShireTypesPro-Derbyshire.ttf') format('truetype'),
+        url('/fonts/ShireTypesPro-Derbyshire.svg#ShireTypesPro-Derbyshire') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+.custom-input {
+  width: 2.5rem;
+  height: 4rem;
+  min-width: 3.2rem;
+  min-height: 5rem;
+  border-radius: 1.5rem;
+  text-align: center;
+  margin-left: 0.5rem;
+  border: 1px solid #1d7d6d;
+}
+
+.custom-input:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(79, 209, 197, 0.3), 0 0 0 1px #00a37f;
+}
+.bg-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.custom-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 50;
+}
+.custom-modal-error {
+  position: fixed;
+  z-index: 50;
+  top: 32%;
+  left: 0;
+  right: 0;
+  bottom: 32%;
+}
+
+.success-modal {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 30%;
+  z-index: 50;
+}
+.custom-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 50;
+}
+.modal-content {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 40rem;
+  height: 95%;
+}
+.checbox-style[type=checkbox]{
+  position: relative;
+	border: 2px solid #00a37f;
+	border-radius: 5px;
+	background: none;
+	cursor: pointer;
+	outline: 0;
+	vertical-align: text-top;
+	-webkit-appearance: none;
+}
+.checbox-style[type=checkbox]:checked {
+  background-color: #00a37f;
+  opacity: 1;
+}
+.checbox-style[type=checkbox]:before {
+  content: '';
+  position: absolute;
+  right: 50%;
+  top: 50%;
+  width: 4px;
+  height: 10px;
+  border: solid #FFF;
+  border-width: 0 2px 2px 0;
+  /* margin: -1px -1px 0 0px; */
+  transform: rotate(45deg) translate(-50%, -50%);
+  z-index: 2;
+}
+
+.experience-section-bg{
+  background-image: url("/images/articleframing.png"), url("/images/leap-rewards.png");
+  background-position: right top, left bottom;
+  background-repeat: no-repeat, no-repeat;
+  background-size: 50%;
+  position: relative;
+  margin-bottom: 30px;
+}
+.experience-section-bg::after{
+  content: "";
+  display: block;
+  background-image:url("/images/inside-bg.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top left;
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 100px;
+  bottom:-30px;
+}
+.border-color{
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+
+/* ----- Faqs ----- */
+
+
+.faqs .faq .faq-question {
+  position: relative;
+  font-size: 20px;
+  padding-right: 80px;
+  transition: all 0.4s ease;
+  cursor: pointer;
+}
+
+.faqs .faq .faq-question::after {
+  content: "+";
+  position: absolute;
+  top: 50%;
+  right: 0px;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  transition: all 0.2s ease;
+  font-size: 25px;
+  display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.faqs .faq .faq-answer {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.faqs .faq.open .faq-question {
+  margin-bottom: 15px;
+}
+
+.faqs .faq.open .faq-question::after {
+  content: "-";
+  font-size: 25px;
+}
+
+.faqs .faq.open .faq-answer {
+  max-height: 1000px;
+  opacity: 1;
+}
+
+
+
+.bg-seagreen {
+  background-color: #1d7d6d;
+}
+
+.star-rating {
+  display: inline-flex;
+  align-items: center;
+}
+
+.star {
+  fill: none;
+  stroke: #1d7d6d;
+  stroke-width: 2;
+  width: 24px;
+  height: 24px;
+  transition: fill 0.2s;
+}
+
+.filled {
+  fill: #1d7d6d;
+}
+
+.half {
+  fill: #1d7d6d;
+  mask: url(#halfStarMask);
+}
+
+@keyframes fillHalfStar {
+  to {
+    transform: translateX(0);
+  }
+}
+
+.half path {
+  animation: fillHalfStar 0.2s forwards;
+}
+
+.white-box {
+  background-color: white;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.header {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.description {
+  font-size: 16px;
+  color: #666;
+}
+.checbox-style[type="checkbox"] {
+  position: relative;
+  border: 2px solid #00a37f;
+  border-radius: 5px;
+  background: none;
+  cursor: pointer;
+  outline: 0;
+  vertical-align: text-top;
+  -webkit-appearance: none;
+}
+.checbox-style[type="checkbox"]:checked {
+  background-color: #00a37f;
+  opacity: 1;
+}
+.checbox-style[type="checkbox"]:before {
+  content: "";
+  position: absolute;
+  right: 50%;
+  top: 50%;
+  width: 4px;
+  height: 10px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  /* margin: -1px -1px 0 0px; */
+  transform: rotate(45deg) translate(-50%, -50%);
+  z-index: 2;
+}

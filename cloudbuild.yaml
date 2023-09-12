@@ -1,0 +1,9 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'europe-docker.pkg.dev/ul-ce-p-902295-prj/leaprewards-stage/leaprewards-stage', '.']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'europe-docker.pkg.dev/ul-ce-p-902295-prj/leaprewards-stage/leaprewards-stage']
+- name: 'gcr.io/cloud-builders/gcloud'
+  args: ['app', 'deploy', 'app.yaml', '--image-url=europe-docker.pkg.dev/ul-ce-p-902295-prj/leaprewards-stage/leaprewards-stage:latest']
+options:
+  logging: CLOUD_LOGGING_ONLY
