@@ -50,7 +50,6 @@ module.exports = {
   ],
 
   theme: {
-    colors: colors,
     extend: {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
